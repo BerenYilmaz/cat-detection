@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['Cat']
+
+roboflow:
+  workspace: berens-workspace-ont4h
+  project: cat-project-7eutw
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/berens-workspace-ont4h/cat-project-7eutw/dataset/4
