@@ -1,26 +1,26 @@
 # YOLO ile Kedi Tespiti
 
-Tek s�n�fl� bir kedi veri k�mesi �zerinde YOLO e�itimi ve �rnek g�r�nt�de tahmin �al��mas�. `train.ipynb`, e�itim ve ��kar�m h�crelerini birlikte i�erir.
+Tek sınıflı bir kedi veri kümesi üzerinde YOLO eğitimi ve örnek görüntüde tahmin çalışması. `train.ipynb`, eğitim ve çıkarım hücrelerini birlikte içerir.
 
 ## Kurulum
 
-Depo k�k�nde etkin bir Python sanal ortam�nda:
+Depo kökünde etkin bir Python sanal ortamında:
 
 ```powershell
 python -m pip install -r requirements.txt
 jupyter notebook train.ipynb
 ```
 
-## Veri ve e�itim
+## Veri ve eğitim
 
-[Cat Project v4](https://universe.roboflow.com/berens-workspace-ont4h/cat-project-7eutw/dataset/4) veri k�mesini YOLO bi�iminde indirip `Cat_Project.v4i.yolov11/` i�ine a��n. Kaynak yap�land�rmas� CC BY 4.0 lisans� ve tek `Cat` s�n�f�n� belirtir. G�rseller ve etiketler depoya dahil de�ildir; `data.yaml` ve kaynak bildirimleri korunur.
+[Cat Project v4](https://universe.roboflow.com/berens-workspace-ont4h/cat-project-7eutw/dataset/4) veri kümesini YOLO biçiminde indirip `Cat_Project.v4i.yolov11/` içine açın. Kaynak yapılandırması CC BY 4.0 lisansı ve tek `Cat` sınıfını belirtir. Görseller ve etiketler depoya dahil değildir; `data.yaml` ve kaynak bildirimleri korunur.
 
-E�itim h�cresi `yolo11n.pt` ba�lang�� a��rl�klar�n� kullan�r ve `epochs=32`, `imgsz=640` ile �al���r. Ba�lang�� a��rl�klar�n� sa�lay�n veya Ultralytics'in indirme mekanizmas� i�in internet eri�imi kullan�n. `data.yaml` i�indeki e�itim/do�rulama yollar�n� kontrol edin.
+Eğitim hücresi `yolo11n.pt` başlangıç ağırlıklarını kullanır ve `epochs=32`, `imgsz=640` ile çalışır. Başlangıç ağırlıklarını sağlayın veya Ultralytics'in indirme mekanizması için internet erişimi kullanın. `data.yaml` içindeki eğitim/doğrulama yollarını kontrol edin.
 
 ## Tahmin
 
-E�itimden sonra ikinci h�credeki `runs/detect/train-13/weights/best.pt` yolunu kendi e�itim ��kt�n�zdaki `best.pt` yoluyla de�i�tirin. Bu yol sabittir ve yeni e�itimle otomatik g�ncellenmez.
+Eğitimden sonra ikinci hücredeki `runs/detect/train-13/weights/best.pt` yolunu kendi eğitim çıktınızdaki `best.pt` yoluyla değiştirin. Bu yol sabittir ve yeni eğitimle otomatik güncellenmez.
 
-Tahmin `cats.jpeg` �zerinde `conf=0.5`, `iou=0.4`, `agnostic_nms=True`, `max_det=100` ayarlar�yla yap�l�r. Sonu� ekranda a��l�r ve `result.jpg` olarak kaydedilir; mevcut dosyan�n �zerine yaz�l�r. `cats.jpeg`, `images.jpg` ve �nceki bir �rnek sonu� g�rseli depoda bulunur.
+Tahmin `cats.jpeg` üzerinde `conf=0.5`, `iou=0.4`, `agnostic_nms=True`, `max_det=100` ayarlarıyla yapılır. Sonuç ekranda açılır ve `result.jpg` olarak kaydedilir; mevcut dosyanın üzerine yazılır. `cats.jpeg`, `images.jpg` ve önceki bir örnek sonuç görseli depoda bulunur.
 
-Notebook ��kt�lar� temizlenmi�tir; e�itilmi� a��rl�klar ve e�itim g�nl�kleri dahil de�ildir. Kaydedilmi� sonu� g�rseli do�rulanm�� bir ba�ar� metri�i de�ildir. H�crelerdeki `KMP_DUPLICATE_LIB_OK` ayar� eski yerel ortam ge�ici ��z�m�d�r; ba��ml�l�k uyumlulu�unu garanti etmez.
+Notebook çıktıları temizlenmiştir; eğitilmiş ağırlıklar ve eğitim günlükleri dahil değildir. Kaydedilmiş sonuç görseli doğrulanmış bir başarı metriği değildir. Hücrelerdeki `KMP_DUPLICATE_LIB_OK` ayarı eski yerel ortam geçici çözümüdür; bağımlılık uyumluluğunu garanti etmez.
